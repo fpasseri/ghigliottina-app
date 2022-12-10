@@ -1,0 +1,524 @@
+{
+  "parola": [
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "LEVI",
+              "value": true
+            },
+            {
+              "choice": "MARE",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "AMORE",
+              "value": true
+            },
+            {
+              "choice": "CUORE",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "ORA",
+              "value": false
+            },
+            {
+              "choice": "ANNO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "POSTO",
+              "value": true
+            },
+            {
+              "choice": "COSTO",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "PROVA",
+              "value": false
+            },
+            {
+              "choice": "NUMERO",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "solution": "PRIMO"
+    },
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "SENZA",
+              "value": true
+            },
+            {
+              "choice": "CON",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "SOPRA",
+              "value": true
+            },
+            {
+              "choice": "SOTTO",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "PAROLA",
+              "value": false
+            },
+            {
+              "choice": "VERBO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "ALTERATA",
+              "value": true
+            },
+            {
+              "choice": "UGUALE",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "AMICO",
+              "value": false
+            },
+            {
+              "choice": "FAMILIARE",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "solution": "VOCE"
+    },
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "PASTA",
+              "value": false
+            },
+            {
+              "choice": "FORMAGGIO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "VALVOLA",
+              "value": false
+            },
+            {
+              "choice": "MOTORE",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "OCCHIO",
+              "value": false
+            },
+            {
+              "choice": "CERVELLO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "ACCIAIO",
+              "value": false
+            },
+            {
+              "choice": "FERRO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "TRENO",
+              "value": false
+            },
+            {
+              "choice": "ORARIO",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "solution": "FUSO"
+    },
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "POSTE",
+              "value": false
+            },
+            {
+              "choice": "MOSTRA",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "DURATA",
+              "value": false
+            },
+            {
+              "choice": "LUNGA",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "PAGLIA",
+              "value": true
+            },
+            {
+              "choice": "CERVELLO",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "ASSO",
+              "value": false
+            },
+            {
+              "choice": "CAVALLO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "TESTA",
+              "value": true
+            },
+            {
+              "choice": "PIEDE",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "solution": "CODA"
+    },
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "PORTATA",
+              "value": true
+            },
+            {
+              "choice": "MASSA",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "VUOTA",
+              "value": false
+            },
+            {
+              "choice": "PESANTE",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "PRIMA",
+              "value": false
+            },
+            {
+              "choice": "ULTIMA",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "SOTTO",
+              "value": true
+            },
+            {
+              "choice": "SOPRA",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "FUOCO",
+              "value": true
+            },
+            {
+              "choice": "ACQUA",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "solution": "MANO"
+    },
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "MELA",
+              "value": true
+            },
+            {
+              "choice": "PERA",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "INDIETRO",
+              "value": true
+            },
+            {
+              "choice": "AVANTI",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "CORSA",
+              "value": false
+            },
+            {
+              "choice": "PASSO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "MILANO",
+              "value": false
+            },
+            {
+              "choice": "ROMA",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "VALUTA",
+              "value": false
+            },
+            {
+              "choice": "CAMBIO",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "solution": "MARCIA"
+    },
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "ZODIACO",
+              "value": false
+            },
+            {
+              "choice": "SEGNO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "OCCHIO",
+              "value": true
+            },
+            {
+              "choice": "SPALLA",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "METTERE",
+              "value": true
+            },
+            {
+              "choice": "TOGLIERE",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "GRECA",
+              "value": true
+            },
+            {
+              "choice": "EGIZIA",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "BACIARE",
+              "value": false
+            },
+            {
+              "choice": "ABBRACCIARE",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "solution": "CROCE"
+    },
+    {
+      "domande": [
+        {
+          "word": [
+            {
+              "choice": "MATRICE",
+              "value": false
+            },
+            {
+              "choice": "CODICE",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "BANCHIERE",
+              "value": false
+            },
+            {
+              "choice": "BANCARIO",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "LIBERO",
+              "value": false
+            },
+            {
+              "choice": "PROFESSIONALE",
+              "value": true
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "INGREDIENTE",
+              "value": true
+            },
+            {
+              "choice": "CHEF",
+              "value": false
+            }
+          ]
+        },
+        {
+          "word": [
+            {
+              "choice": "DIARIO",
+              "value": true
+            },
+            {
+              "choice": "QUADERNO",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "solution": "SEGRETO"
+    }
+  ]
+}
