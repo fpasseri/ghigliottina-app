@@ -1,0 +1,384 @@
+<div class="content" role="main">
+  <div class="container-fluid">
+    <div class="row" *ngIf="showWord1" [ngClass]="showSolutionPanel ? 'shrinkTitle': ''">
+      <div class="col text-center" *ngIf="round==0">
+        <span class="title"> LA GHIGLIOTTINA </span>
+      </div>
+      <div class="col-8 col-xl-6 col-sm-4 text-center" *ngIf="round>0">
+        <span class="title"> LA GHIGLIOTTINA </span>
+      </div>
+      <div class="col-8 col-xl-6 d-none d-sm-block mt-xl-4" *ngIf="round>0">
+        <div class="row bg1" style="width:98%">
+          <div class="col-6">
+            <span class="font-small" style="color:cyan"> {{nome1}}</span>
+          </div>
+          <div class="col-3">
+            <span *ngIf="round>1" [ngClass]="arraySolutions[0]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>3" [ngClass]="arraySolutions[2]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>5" [ngClass]="arraySolutions[4]==true ? 'ball-green':'ball-red'"></span>
+          </div>
+          <div class="col-3">
+            <span style="margin-left:15px;color:darkgoldenrod">{{importo1}} €</span>
+          </div>
+        </div>
+
+        <div class="row bg2 mt-xl-2" style="width:98%">
+          <div class="col-6">
+            <span class="font-small" style="color:yellow"> {{nome2}}</span>
+          </div>
+          <div class="col-3">
+            <span *ngIf="round>2"  [ngClass]="arraySolutions[1]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>4"  [ngClass]="arraySolutions[3]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>6"  [ngClass]="arraySolutions[5]==true ? 'ball-green':'ball-red'"></span>
+          </div>
+          <div class="col-3">
+            <span style="margin-left:15px;color:darkgoldenrod">{{importo2}} €</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 d-xs-block d-sm-none" *ngIf="!showSolutionPanel && round>0">
+        <button class="btn mt-2 btn-primary" (click)="openTabellone()">Tabellone</button>
+      </div>
+    </div>
+
+    <!--PAROLA 1 -->
+    <div class="row">
+      <div class="col-xl-3 col-sm-5 col-md-4 col-12">
+        <div class="row" *ngIf="showWord1">
+          <div class="col-12 col-xl-11 mt-5 mt-sm-0 mt-xl-5 text-center" [ngClass]="showSolutionPanel ? 'shrink': ''">
+            <span class="nome">{{ word1 }}</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <!--PAROLA 2 -->
+        <div class="row" *ngIf="showWord2">
+          <div class="col-12 col-xl-11 text-center" [ngClass]="showSolutionPanel ? 'shrink': ''">
+            <span class="nome">{{ word2 }}</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <!--PAROLA 3 -->
+        <div class="row" *ngIf="showWord3">
+          <div class="col-12 col-xl-11 text-center" [ngClass]="showSolutionPanel ? 'shrink': ''">
+            <span class="nome">{{ word3 }}</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <!--PAROLA 4 -->
+        <div class="row" *ngIf="showWord4">
+          <div class="col-12 col-xl-11 text-center" [ngClass]="showSolutionPanel ? 'shrink': ''">
+            <span class="nome">{{ word4 }}</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <!--PAROLA 5 -->
+        <div class="row" *ngIf="showWord5">
+          <div class="col-12 col-xl-11 col-3 text-center" [ngClass]="showSolutionPanel ? 'shrink': ''">
+            <span class="nome">{{ word5 }}</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="container-fluid" style="padding-left:0px;margin-left: -10px;" *ngIf="showWord1">
+          <div class="montepremi">
+            <div class="col-12 offset-sm-8 col-sm-8 offset-xl-0 col-lg-9 col-xl-12 mt-5 text-center montepremiPanel">
+              <span class="vincita" [@valueAnimation]="importo">{{ importo }} €</span>
+              <img class="box img-fluid" src="./assets/box_giallo.png" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showWord1 && round == 0">
+          <div class="col-xl-2 newgame">
+            <button class="btn btn-lg btn-primary text-center" (click)="callNextWord()">
+              Cambia parola
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-9 col-sm-7 col-md-8 col-12 mt-5 text-default text-center montepremiPanel">
+        <div class="row" *ngIf="showWordPanel">
+          <div class="col text-center">
+            <span *ngIf="nome != ''">{{nome}}, scegli la parola n. {{ wordCounter }} </span>
+            <span *ngIf="round == 1 || round == 3 || round == 5">
+              <span style="color: cyan">{{nome1}}</span>, scegliete la parola n. {{ wordCounter }}
+            </span>
+            <span *ngIf="round == 2 || round == 4 || round == 6">
+              <span style="color:yellow">{{nome2}}</span>, scegliete la parola n. {{ wordCounter }}
+            </span>
+            <button class="btn btn-lg btn-success text-center" (click)="wordIndex=2" data-bs-toggle="modal" data-bs-target="#wordModal">
+              PROCEDI
+            </button>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showSolutionPanel">
+          <div class="col mt-5 text-center solutionPanel">
+            Scrivi la soluzione<br />
+            <input class="text-default-black" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="soluzione" />
+          </div>
+
+          <div class="col-12 mt-3">
+            <button class="btn btn-lg btn-success text-center" (click)="checkSolution()">
+              CONFERMA
+            </button>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showSolutionPanel">
+          <div class="col">
+            <countdown class="countdown" style="color: gold" #cd [config]="config" (event)="handleEvent($event)">
+            </countdown>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal start-->
+<div class="modal fade" id="startModal" tabindex="-1" aria-labelledby="Gioca" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-lg startModal" [ngClass]="!showMenuNome2 ?  'startModal':'startModal2'">
+    <div class="modal-content" style="background-color: darkgoldenrod">
+      <div class="modal-body">
+        <div class="row text-center">
+          <img src="./assets/ghigliottina.jpg" class="img-fluid shrinkImg-sm" [ngClass]="showMenuNome2 ? 'shrinkImg rounded':''" />
+        </div>
+        <div class="row" *ngIf="showMenuStart">
+          <div class="col-12 text-center">
+            <span role="button" (click)="showMenuStart=false;showMenuTipoPartita = true" class="nomeModal">GIOCA</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showMenuTipoPartita">
+          <div class="col-12 mt-3 text-center">
+            <span role="button" (click)="showMenuTipoPartita=false;showMenuInfo=true;" class="nomeModal">Partita
+              singola</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showMenuTipoPartita">
+          <div class="col-12 text-center">
+            <span role="button" (click)="showMenuTipoPartita=false;showMenuInfo2=true" class="nomeModal">Gioco a
+              squadre</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showMenuInfo">
+          <div class="col-12 mt-3 text-small text-default">
+            Indovina la parola misteriosa e vinci !!
+          </div>
+          <div class="col-12 mt-3 text-center">
+            <span role="button" (click)="showMenuInfo=false;showMenuNome = true" class="nomeModal">CONTINUA</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showMenuInfo2">
+          <div class="col-12 mt-3 text-small">
+            Ogni squadra ha 3 parole da indovinare.<br> Vince chi ottiene alla fine dei tre turni il montepremi più
+            alto!
+          </div>
+          <div class="col-12 mt-3 text-center">
+            <span role="button" (click)="showMenuInfo2=false;showMenuNome2 = true" class="nomeModal">CONTINUA</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showMenuNome">
+          <div class="col mt-3">
+            <span class="text-small">Inserisci il tuo nome</span><br>
+            <input class="text-default-black" style="width:100%" oninput="this.value = this.value.toUpperCase()"
+              [(ngModel)]="nome" />
+          </div>
+          <div class="col-12 mt-3 text-center">
+            <span role="button" (click)="playStart(1)" class="nomeModal">GIOCA!!</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showMenuNome2">
+          <div class="col-12 text-center">
+            <div class="col mt-3">
+              <span class="text-small">Inserisci il nome della Squadra 1</span><br>
+              <input class="text-default-black" style="width:100%" oninput="this.value = this.value.toUpperCase()"
+                [(ngModel)]="nome1" />
+            </div>
+            <div class="col mt-3">
+              <span class="text-small">Inserisci il nome della Squadra 2</span><br>
+              <input class="text-default-black" style="width:100%" oninput="this.value = this.value.toUpperCase()"
+                [(ngModel)]="nome2" />
+            </div>
+          </div>
+          <div class="col-12 mt-3 text-center">
+            <span role="button" (click)="playStart(2)" class="nomeModal">GIOCHIAMO!!</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal choice-->
+<div class="modal fade" id="wordModal" tabindex="-1" aria-labelledby="Scegli la parola" aria-hidden="true"
+  data-backdrop="static">
+  <div class="modal-dialog choiceModal">
+    <div class="modal-content" style="background-color: cornflowerblue">
+      <h5 class="modal-title text-center" style="color: white" id="exampleModalLabel">
+        Seleziona la parola n. {{ wordCounter }}
+      </h5>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 mt-3 text-center" [ngClass]="{ 'ghigliottina-ko' : wordIndex==0 && goodChoice==false,'ghigliottina-ok' : wordIndex==0 && goodChoice==true}">
+            <span role="button" (click)="checkWord(wordChoice?.word[0], wordChoice?.word, 0)" class="nomeModal">{{
+              wordChoice?.word[0]?.choice }}</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-center" [ngClass]="{ 'ghigliottina-ko' : wordIndex==1 && goodChoice==false,'ghigliottina-ok' : wordIndex==1 && goodChoice==true}">
+            <span role="button" (click)="checkWord(wordChoice?.word[1], wordChoice?.word, 1)" class="nomeModal">{{
+              wordChoice?.word[1]?.choice }}</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="finalModal" tabindex="-1" aria-labelledby="Hai vinto?" aria-hidden="true"
+  data-backdrop="static">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: darkgoldenrod">
+      <div class="modal-body">
+        <div class="row" *ngIf="win">
+          <div class="col text-center win-font">
+            <span *ngIf="round==0" class="font-size:40px">HAI VINTO!!</span><br>
+            <span *ngIf="round==2 || round==4 || round==6" class="font-size:40px">Bravi <span style="color:cyan">{{nome1}}</span>, risposta esatta!!</span>
+            <span *ngIf="round==3 || round==5 || round==7" class="font-size:40px">Bravi <span style="color:yellow">{{nome2}}</span>, risposta esatta!!</span>
+            <br />
+            <div class="col-12 mt-5 text-center">
+              <span class="vincitaModal">{{ importo }} €</span>
+              <img class="box img-fluid" src="./assets/box_giallo.png" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="!win && this.showWord1">
+          <div class="col text-center win-font">
+            <span>NON HAI VINTO!!</span><br>
+            <span *ngIf="round==2 || round==4 || round==6" class="font-size:40px">Peccato <span style="color:cyan">{{nome1}}</span>, risposta errata!!</span>
+            <span *ngIf="round==3 || round==5 || round==7" class="font-size:40px">Peccato <span style="color:yellow">{{nome2}}</span>, risposta errata!!</span> <br />
+            La parola giusta era
+            <span style="color: gold">{{ jsonData.parola[this.numeroDomanda].solution }}</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mt-3 text-center" *ngIf="round==0">
+            <span role="button" (click)="callNextWord()" class="rigioca">RIGIOCA</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+
+          <div class="col-12 mt-3 text-center" *ngIf="round==0">
+            <span  role="button" (click)="restart(2)" class="rigioca">GIOCA A SQUADRE</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+
+          <div class="col-12 mt-3 text-center" *ngIf="round>0">
+            <span  role="button" (click)="callNextWord()" class="rigioca">CONTINUA</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="tabelloneModal" tabindex="-1" aria-labelledby="Hai vinto?" aria-hidden="true"
+  data-backdrop="static">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: darkgoldenrod">
+      <div class="modal-body">
+        <div class="row">
+          <span class="title"> TABELLONE </span>
+        </div>
+
+        <div class="col text-center text-default" *ngIf="round>6 && (importo1>importo2 || importo2>importo1)">
+          VINCE LA SQUADRA <span *ngIf="importo1>importo2" style="color:cyan">{{nome1}}</span>
+          <span *ngIf="importo2>importo1" style="color:yellow">{{nome2}}</span><br>
+          <span *ngIf="importo1>importo2"style="color: gold">{{ importo1 }}</span>
+          <span *ngIf="importo2>importo1"style="color: gold">{{ importo2 }}</span>
+        </div>
+
+        <div class="col text-center text-default" *ngIf="round>6 && importo1==importo2">
+            ED E' UN CLAMOROSO PAREGGIO!!!!<br>
+          <span *ngIf="importo1>importo2"style="color: gold">{{ importo1 }}</span>
+        </div>
+
+
+
+        <div class="row text-normal">
+          <div class="col-6">
+            <span  style="color:cyan"> {{nome1}}</span>
+          </div>
+          <div class="col-3">
+            <span *ngIf="round>1" [ngClass]="arraySolutions[0]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>3" [ngClass]="arraySolutions[2]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>5" [ngClass]="arraySolutions[4]==true ? 'ball-green':'ball-red'"></span>
+          </div>
+          <div class="col-3">
+            <span style="margin-left:15px;color:white">{{importo1}} €</span>
+          </div>
+        </div>
+
+        <div class="row text-normal">
+          <div class="col-6">
+            <span style="color:yellow"> {{nome2}}</span>
+          </div>
+          <div class="col-3">
+            <span *ngIf="round>2" [ngClass]="arraySolutions[1]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>4" [ngClass]="arraySolutions[3]==true ? 'ball-green':'ball-red'"></span>
+            <span *ngIf="round>6" [ngClass]="arraySolutions[5]==true ? 'ball-green':'ball-red'"></span>
+          </div>
+          <div class="col-3">
+            <span style="margin-left:15px;color:white">{{importo2}} €</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mt-3 text-center" *ngIf="round==7">
+            <span role="button" (click)="restart(2)" class="rigioca">RIGIOCA</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+
+          <div class="col-12 mt-3 text-center" *ngIf="round==7">
+            <span role="button" (click)="restart(1)" class="rigioca">GIOCO SINGOLO</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+
+          <div class="col-12 mt-3 text-center d-xs-block d-sm-none" *ngIf="round> 0 && round<7">
+            <span role="button" (click)="closeTabellone()" class="rigioca">CHIUDI</span>
+            <img class="box img-fluid" src="./assets/box_blu.png" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
