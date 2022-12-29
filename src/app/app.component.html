@@ -121,7 +121,7 @@
         <div class="row" *ngIf="showSolutionPanel">
           <div class="col mt-5 text-center solutionPanel">
             Scrivi la soluzione<br />
-            <input class="text-default-black" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="soluzione" />
+            <input class="text-default-black" (keyup.enter)="checkSolution()" oninput="this.value = this.value.toUpperCase()" [(ngModel)]="soluzione" />
           </div>
 
           <div class="col-12 mt-3">
@@ -197,7 +197,7 @@
         <div class="row" *ngIf="showMenuNome">
           <div class="col mt-3">
             <span class="text-small">Inserisci il tuo nome</span><br>
-            <input class="text-default-black" style="width:100%" oninput="this.value = this.value.toUpperCase()"
+            <input class="text-default-black" (keyup.enter)="playStart(1)" style="width:100%" oninput="this.value = this.value.toUpperCase()"
               [(ngModel)]="nome" />
           </div>
           <div class="col-12 mt-3 text-center">
@@ -210,12 +210,12 @@
           <div class="col-12 text-center">
             <div class="col mt-3">
               <span class="text-small">Inserisci il nome della Squadra 1</span><br>
-              <input class="text-default-black" style="width:100%" oninput="this.value = this.value.toUpperCase()"
+              <input class="text-default-black" (keyup.enter)="playStart(2)" style="width:100%" oninput="this.value = this.value.toUpperCase()"
                 [(ngModel)]="nome1" />
             </div>
             <div class="col mt-3">
               <span class="text-small">Inserisci il nome della Squadra 2</span><br>
-              <input class="text-default-black" style="width:100%" oninput="this.value = this.value.toUpperCase()"
+              <input class="text-default-black" (keyup.enter)="playStart(2)" style="width:100%" oninput="this.value = this.value.toUpperCase()"
                 [(ngModel)]="nome2" />
             </div>
           </div>
@@ -239,7 +239,7 @@
       </h5>
       <div class="modal-body">
         <div class="row">
-          <div class="col-12 mt-3 text-center" [ngClass]="{ 'ghigliottina-ko' : wordIndex==0 && goodChoice==false,'ghigliottina-ok' : wordIndex==0 && goodChoice==true}">
+          <div class="col-12 text-center" [ngClass]="{ 'ghigliottina-ko' : wordIndex==0 && goodChoice==false,'ghigliottina-ok' : wordIndex==0 && goodChoice==true}">
             <span role="button" (click)="checkWord(wordChoice?.word[0], wordChoice?.word, 0)" class="nomeModal">{{
               wordChoice?.word[0]?.choice }}</span>
             <img class="box img-fluid" src="./assets/box_blu.png" />
@@ -262,15 +262,14 @@
 
 <div class="modal fade" id="finalModal" tabindex="-1" aria-labelledby="Hai vinto?" aria-hidden="true"
   data-backdrop="static">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg finalModal">
     <div class="modal-content" style="background-color: darkgoldenrod">
       <div class="modal-body">
         <div class="row" *ngIf="win">
           <div class="col text-center win-font">
-            <span *ngIf="round==0" class="font-size:40px">HAI VINTO!!</span><br>
+            <div class="col" *ngIf="round==0">HAI VINTO!!</div>
             <span *ngIf="round==2 || round==4 || round==6" class="font-size:40px">Bravi <span style="color:cyan">{{nome1}}</span>, risposta esatta!!</span>
             <span *ngIf="round==3 || round==5 || round==7" class="font-size:40px">Bravi <span style="color:yellow">{{nome2}}</span>, risposta esatta!!</span>
-            <br />
             <div class="col-12 mt-5 text-center">
               <span class="vincitaModal">{{ importo }} €</span>
               <img class="box img-fluid" src="./assets/box_giallo.png" />
@@ -280,11 +279,11 @@
 
         <div class="row" *ngIf="!win && this.showWord1">
           <div class="col text-center win-font">
-            <span>NON HAI VINTO!!</span><br>
+            <div class="col">NON HAI VINTO!!</div>
             <span *ngIf="round==2 || round==4 || round==6" class="font-size:40px">Peccato <span style="color:cyan">{{nome1}}</span>, risposta errata!!</span>
-            <span *ngIf="round==3 || round==5 || round==7" class="font-size:40px">Peccato <span style="color:yellow">{{nome2}}</span>, risposta errata!!</span> <br />
+            <span *ngIf="round==3 || round==5 || round==7" class="font-size:40px">Peccato <span style="color:yellow">{{nome2}}</span>, risposta errata!!</span>
             La parola giusta era
-            <span style="color: gold">{{ jsonData.parola[this.numeroDomanda].solution }}</span>
+            <div class="col" style="color: gold">{{ jsonData.parola[this.numeroDomanda].solution }}</div>
           </div>
         </div>
 
@@ -312,7 +311,7 @@
 
 <div class="modal fade" id="tabelloneModal" tabindex="-1" aria-labelledby="Hai vinto?" aria-hidden="true"
   data-backdrop="static">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg tabelloneModal">
     <div class="modal-content" style="background-color: darkgoldenrod">
       <div class="modal-body">
         <div class="row">
@@ -322,8 +321,8 @@
         <div class="col text-center text-default" *ngIf="round>6 && (importo1>importo2 || importo2>importo1)">
           VINCE LA SQUADRA <span *ngIf="importo1>importo2" style="color:cyan">{{nome1}}</span>
           <span *ngIf="importo2>importo1" style="color:yellow">{{nome2}}</span><br>
-          <span *ngIf="importo1>importo2"style="color: gold">{{ importo1 }}</span>
-          <span *ngIf="importo2>importo1"style="color: gold">{{ importo2 }}</span>
+          <span *ngIf="importo1>importo2"style="color: gold">{{ importo1 }} €</span>
+          <span *ngIf="importo2>importo1"style="color: gold">{{ importo2 }} €</span>
         </div>
 
         <div class="col text-center text-default" *ngIf="round>6 && importo1==importo2">

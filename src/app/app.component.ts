@@ -57,6 +57,7 @@ export class AppComponent {
   win: boolean = false;
   audioMinuto: any;
   audioSottofondo: any;
+  audioSigla:any;
   showMenuStart = true;
   showMenuTipoPartita = false;
   showMenuInfo = false;
@@ -95,6 +96,7 @@ export class AppComponent {
       }
     );
     this.startModal.show();
+    this.playSigla();
   }
 
   assignWord(counter: number) {
@@ -169,6 +171,7 @@ export class AppComponent {
   }
 
   checkSolution() {
+    this.countdown.stop();
     if (
       this.soluzione.toUpperCase() ===
       this.jsonData.parola[this.numeroDomanda].solution
@@ -236,6 +239,16 @@ export class AppComponent {
       audio.src = './assets/errore.mp3';
       audio.load();
       audio.play();
+
+      if(this.round>0 && this.round<7) {
+        this.round++
+      }
+      if(this.round==7) {
+        setTimeout(() => {
+        this.finalModal.hide();
+          this.openTabellone();
+        }, 7000);
+      }
     }
   }
 
@@ -252,12 +265,21 @@ export class AppComponent {
         this.round = 1;
       }
     }
+    this.audioSigla.pause();
     let audio = new Audio();
     audio.src = './assets/start.mp3';
     audio.load();
     audio.play();
     this.startModal.hide();
     this.nuovaPartita();
+  }
+
+  playSigla() {
+    this.audioSigla = new Audio();
+    this.audioSigla.volume = 0.2;
+    this.audioSigla.src = './assets/sigla.mp3';
+    this.audioSigla.load();
+    this.audioSigla.play();
   }
 
   playMinuto() {

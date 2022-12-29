@@ -39,8 +39,8 @@ body {
 
 .text-small {
   color: white;
-  font-size: 16px;
-  text-shadow: 3px 3px #000000;
+  font-size: 18px;
+  text-shadow: 2px 2px #000000;
 }
 
 .text-normal {
@@ -49,7 +49,7 @@ body {
   text-shadow: 3px 3px #000000;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1600px) {
   .nome {
     width: 25%;
     position: absolute;
@@ -57,7 +57,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 2.3em;
-    margin-top: 15px;
+    margin-top: 0.8%;
     text-shadow: 3px 3px #000000;
     margin-left:-2%;
   }
@@ -83,13 +83,13 @@ body {
 
   .text-default {
     color: white;
-    font-size: 50px;
+    font-size: 32px;
     text-shadow: 3px 3px #000000;
   }
 
   .text-default-black {
     color: black;
-    font-size: 50px;
+    font-size: 32px;
     text-shadow: 3px 3px #ffffff;
   }
 
@@ -100,7 +100,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 2.3em;
-    margin-top: 20px;
+    margin-top: 4.3%;
     text-shadow: 3px 3px #000000;
     left: 10%
   }
@@ -111,7 +111,7 @@ body {
     height: 85px;
     z-index: 2;
     color: white;
-    font-size: 2em;
+    font-size: 2.3em;
     margin-top: 25px;
     text-shadow: 3px 3px #000000;
     left: 10%
@@ -135,7 +135,7 @@ body {
 
   .startModal {
     top:20%;
-    width:26%
+    width:30%
   }
 }
 
@@ -146,7 +146,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 30px;
-    margin-top: 4%;
+    margin-top: 4.2%;
     text-shadow: 3px 3px #000000;
   }
 
@@ -177,6 +177,14 @@ body {
     font-size: 32px;
   }
 
+  .choiceModal {
+    top:55%;
+  }
+
+  .finalModal {
+    top:50%
+  }
+
   .nomeModal {
     width: 80%;
     position: absolute;
@@ -184,7 +192,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 1.8em;
-    margin-top: 3.5%;
+    margin-top: 3.8%;
     text-shadow: 3px 3px #000000;
     left: 10%
   }
@@ -247,6 +255,7 @@ body {
   .shrinkTitle {
     transition: 1s ease-out;
     max-height: 0px;
+    visibility: collapse;
   }
 
   .shrinkImg {
@@ -364,7 +373,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 20px;
-    margin-top: 1.5%;
+    margin-top: 1.4%;
     text-shadow: 3px 3px #000000;
   }
 
@@ -392,7 +401,7 @@ body {
 
   .text-default-black {
     color: black;
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .nomeModal {
@@ -449,7 +458,7 @@ body {
 
   .startModal {
     top:-2%;
-    max-width: 42%;
+    max-width: 45%;
   }
 
   .choiceModal {
@@ -461,14 +470,18 @@ body {
   }
 
   .shrinkImg-sm {
-    max-width:80%;
-    margin-left:10%
+    max-width:50%;
+    margin-left:25%
+  }
+
+  .tabelloneModal {
+    min-width:65%
   }
 }
 
 @media (min-width:992px) and (max-width: 1199px) {
   .nome {
-    width: 35%;
+    width: 31%;
     position: absolute;
     z-index: 2;
     color: white;
@@ -512,7 +525,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 26px;
-    margin-top: 15%;
+    margin-top: 9.5%;
     text-shadow: 3px 3px #000000;
   }
 
@@ -524,7 +537,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 32px;
-    margin-top: 10%;
+    margin-top: 6.5%;
     text-shadow: 3px 3px #000000;
   }
 
@@ -567,6 +580,102 @@ body {
 
 }
 
+@media (min-width: 1200px) and (max-width:1599px) {
+  .nome {
+    width: 25%;
+    position: absolute;
+    height: 85px;
+    z-index: 2;
+    color: white;
+    font-size: 28px;
+    margin-top: 0.5%;
+    text-shadow: 3px 3px #000000;
+    margin-left:-2%;
+  }
+
+  .vincita {
+    width: 100%;
+    position: absolute;
+    height: 85px;
+    z-index: 2;
+    color: white;
+    font-size: 60px;
+    margin-top: 15px;
+    margin-left:-1%;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .title {
+    font-size: 80px;
+    color: gold;
+    text-align: center;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .text-default {
+    color: white;
+    font-size: 32px;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .text-default-black {
+    color: black;
+    font-size: 32px;
+    text-shadow: 3px 3px #ffffff;
+  }
+
+  .nomeModal {
+    width: 80%;
+    position: absolute;
+    height: 85px;
+    z-index: 2;
+    color: white;
+    font-size: 2.3em;
+    margin-top: 20px;
+    text-shadow: 3px 3px #000000;
+    left: 10%
+  }
+
+  .rigioca {
+    width: 80%;
+    position: absolute;
+    height: 85px;
+    z-index: 2;
+    color: white;
+    font-size: 2em;
+    margin-top: 25px;
+    text-shadow: 3px 3px #000000;
+    left: 10%
+  }
+
+  .win-font {
+    color: white;
+    font-size: 40px;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .vincitaModal {
+    width: 73%;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    font-size: 60px;
+    margin-top: 15px;
+    text-shadow: 3px 3px #000000;
+  }
+
+  .startModal {
+    top:3%;
+    width:36%
+  }
+}
+
+// for TV
+@media (min-width:870px) and (max-width:991px) {
+  .nome {
+    margin-top: 1.5% !important;
+  }
+}
 
 .text-center {
   text-align: center;
